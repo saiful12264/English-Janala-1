@@ -34,17 +34,43 @@ const displayWords = (words) => {
 
   wordsContainer.innerHTML = "";
 
+  if (words.length === 0) {
+    wordsContainer.innerHTML = `
+     <div class="text-center font-bangla space-y-5 py-12 col-span-3">
+          <img class="mx-auto" src="./assets/alert-error.png" alt="">
+
+          <p class="text-gray-500">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+          <h1 class="text-3xl font-semibold">নেক্সট Lesson এ যান</h1>
+        </div>
+    `;
+    return;
+  }
+
   words.forEach((word) => {
+    console.log(word);
     const wordDiv = document.createElement("div");
+
     wordDiv.innerHTML = `
-         <div class="bg-white rounded-xl px-5 py-10 text-center space-y-3">
-          <h1 class="text-3xl font-bold">Eager</h1>
+         <div
+          class="bg-white rounded-xl px-5 py-10 text-center space-y-10 shadow-sm h-[100%]"
+        >
+          <h1 class="text-3xl font-bold">${word.word}</h1>
           <p class="font-medium text-lg">Meaning /Pronounciation</p>
-          <h1 class="text-3xl font-bold font-bangla">"আগ্রহী / ইগার"</h1>
+          <h1 class="text-3xl font-bold font-bangla">"${word.meaning} / ${word.pronunciation}"</h1>
+
+          <div class="flex justify-between items-center">
+            <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+
+            <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]">
+              <i class="fa-solid fa-arrow-down"></i>
+            </button>
+          </div>
         </div>
         `;
 
-        wordsContainer.append(wordDiv);
+    wordsContainer.append(wordDiv);
   });
 };
 loadAllLevel();
