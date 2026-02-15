@@ -154,11 +154,34 @@
         <!-- container comes from js file -->
       </div>
     </section>
+
+    <!-- search section  -->
+    <section class="flex justify-center items-center m-10 ">
+      <div class="join">
+        <div>
+          <label class="input join-item">
+            
+            <input id="input-search" type="text" placeholder="Search Vocabulary" required />
+          </label>
+          <div class=" hidden"></div>
+        </div>
+        <button id="btn-search" class="btn btn-primary join-item">Search</button>
+      </div>
+    </section>
+
     <!-- word section  -->
-    <section class="bg-gray-100 my-10 p-10 rounded-xl">
+    <section id="word-container1" class="bg-gray-100 my-10 p-10 rounded-xl">
+      <!-- spinner loader   -->
+
+      <section
+        id="spinner"
+        class="flex justify-center items-center m-10 p-10 hidden"
+      >
+        <span class="loading loading-bars loading-xl"></span>
+      </section>
+
       <section id="word-container" class="grid grid-cols-3 gap-4">
         <!-- contain comes form js -->
-        
 
         <div class="text-center font-bangla space-y-5 py-12 col-span-3">
           <p class="text-gray-500">আপনি এখনো কোন Lesson Select করেন</p>
@@ -166,6 +189,14 @@
         </div>
       </section>
     </section>
+
+    <!-- modal  -->
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <!-- contain comes from js  -->
+    </dialog>
 
     <script src="./index.js"></script>
   </body>
